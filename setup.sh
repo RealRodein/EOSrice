@@ -11,3 +11,11 @@ cargo build --release --no-default-features --features=wayland
 cd target/release
 chmod +x ./eww
 ./eww daemon
+cd
+git clone -b eww https://github.com/Aylur/dotfiles.git
+git clone https://github.com/Aylur/dotfiles.git
+cp -r dotfiles/.config/eww ~/.config/eww
+cp -r dotfiles/.config/hypr ~/.config/hypr
+mv ~/.config/hypr/_hyprland.conf ~/.config/hypr/hyprland.conf
+rm /.config/hypr/theme.conf
+mv ~/EOSrice/theme.conf ~/.config/hypr/
