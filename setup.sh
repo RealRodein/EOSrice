@@ -4,20 +4,24 @@ sudo su
 mkdir ~/Downloads
 yay -S kitty polybar rofi bspwm-rounded-corners-git xdg-user-dirs nautilus xorg pavucontrol blueberry xfce4-power-manager feh lxappearance papirus-icon-theme file-roller gtk-engines gtk-engine-murrine neofetch imagemagick parcellite xclip maim gpick curl jq tint2 zsh moreutils recode dunst plank python-xdg redshift mate-polkit xfce4-settings mpv yaru-sound-theme fish alsa-utils slim xorg-xinit brightnessctl acpi mugshot playerctl python-pytz glava wmctrl i3lock-color jgmenu inter-font networkmanager-dmenu-git conky-lua bsp-layout zscroll noise-suppression-for-voice starship system76-power lsof gamemode lib32-gamemode xdo bluez bluez-utils bluez-libs bluez-tools
 yay -S python-pip
+echo "installing pip"
 pip install pylrc
 yay -S rust-nightly-bin gtk3
 cd ~/Downloads
 git clone https://github.com/elkowar/eww.git
+echo "cloning eww"
 cd eww
 cargo build --release -j $(nproc)
 cd target/release
 mv eww /usr/bin/eww
 yay -S base-devel
 cd ~/Downloads
+echo "getting requirements"
 git clone https://github.com/baskerville/xqp.git
 cd xqp
 make
 sudo make install
+echo "made xqp"
 yay -S sudo pacman -S libconfig libev libxdg-basedir pcre pixman xcb-util-image xcb-util-renderutil hicolor-icon-theme libglvnd libx11 libxcb libxext libdbus asciidoc uthash
 cd ~/Downloads
 git clone https://github.com/pijulius/picom.git
@@ -26,8 +30,10 @@ meson --buildtype=release . build --prefix=/usr -Dwith_docs=true
 sudo ninja -C build install
 sudo usermod -aG adm $USER
 sudo systemctl enable --now com.system76.PowerDaemon
+echo "got picom"
 sudo systemctl enable bluetooth
 ##2
+echo "starting to apply the theme"
 cd ~/Downloads
 git clone https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme.git
 cd Tokyo-Night-GTK-Theme/
